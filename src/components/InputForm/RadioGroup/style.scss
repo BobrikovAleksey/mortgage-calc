@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+.form-check-input_secondary {
+  &:checked {
+    background: $secondary;
+    border-color: $secondary;
+  }
+
+  &:focus {
+    $focus-color: rgba($secondary, .25);
+    box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width $focus-color;
+  }
+}

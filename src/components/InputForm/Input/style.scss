@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+.form-control_secondary {
+  &:focus {
+    $focus-color: rgba($secondary, .25);
+    border-color: tint-color($secondary, 50%);
+    box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width $focus-color;
+  }
+}
+
+.input-group_with-label {
+  width: percentage(8 / 12);
+}

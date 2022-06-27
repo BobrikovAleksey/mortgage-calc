@@ -1,0 +1,19 @@
+.btn-group_tabs > div {
+  &:first-of-type .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:last-of-type .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &:not(:first-of-type,:last-of-type) .btn {
+    border-radius: 0;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: -1px;
+  }
+}
