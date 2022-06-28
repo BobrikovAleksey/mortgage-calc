@@ -1,18 +1,18 @@
 import { CalcActionsEnum, CalcTypeEnum, PaymentTypeEnum } from './enums';
 
 export interface CalcState {
-  creditAmount: number | null;
+  creditAmount: number;
   creditTerm: number | null;
-  initialFee: number | null;
+  initialFee: number;
   paymentType: PaymentTypeEnum;
-  price: number | null;
+  price: number;
   rate: number | null;
   type: CalcTypeEnum;
 }
 
 export interface SetCreditAmountAction {
   type: CalcActionsEnum.SET_CREDIT_AMOUNT;
-  payload: number | null;
+  payload: number;
 }
 
 export interface SetCreditTermAction {
@@ -22,7 +22,7 @@ export interface SetCreditTermAction {
 
 export interface SetInitialFeeAction {
   type: CalcActionsEnum.SET_INITIAL_FEE;
-  payload: number | null;
+  payload: number;
 }
 
 export interface SetPaymentType {
@@ -32,7 +32,7 @@ export interface SetPaymentType {
 
 export interface SetPriceAction {
   type: CalcActionsEnum.SET_PRICE;
-  payload: number | null;
+  payload: number;
 }
 
 export interface SetRateAction {

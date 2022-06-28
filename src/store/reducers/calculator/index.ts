@@ -3,11 +3,11 @@ import { CalcActionsEnum, CalcTypeEnum, PaymentTypeEnum } from './types/enums';
 import { CalcState } from './types/interfaces';
 
 const initialState: CalcState = {
-  creditAmount: null,
+  creditAmount: 0,
   creditTerm: null,
-  initialFee: null,
+  initialFee: 0,
   paymentType: PaymentTypeEnum.DIFFERENTIATED,
-  price: null,
+  price: 0,
   rate: null,
   type: CalcTypeEnum.BY_PROPERTY_VALUE,
 };
