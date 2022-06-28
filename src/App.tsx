@@ -1,12 +1,12 @@
-import React from 'react';
-import InputForm from './components/InputForm';
+import { FC } from 'react';
+import Calculator from './components/Calculator';
 
-function App() {
+const App: FC = () => {
   return (
     <div className="container">
       <h1 className="my-4">Ипотечный калькулятор</h1>
 
-      <InputForm />
+      <Calculator />
     </div>
   );
 }
