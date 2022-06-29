@@ -1,11 +1,11 @@
 import { FC, ChangeEvent } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { useActions } from '../../../hooks/useActions';
-import { numericKeyValidator, numericValueValidator } from '../../../libs/validator';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useActions';
+import { numericKeyValidator, numericValueValidator } from '../../../../libs/validator';
 
 const InitialFee: FC = () => {
-  const { initialFee } = useTypedSelector((state) => state.calc);
+  const { initialFee } = useTypedSelector((state) => state.mortgageCalc.inputForm);
   const { setInitialFee } = useActions();
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {

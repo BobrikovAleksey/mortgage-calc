@@ -1,9 +1,9 @@
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { PaymentTypeEnum } from '../../../store/reducers/calculator/types/enums';
+import { PaymentTypeEnum } from '../../../../store/types/calc/enums';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 
 const PaymentType = () => {
-  const { paymentType } = useTypedSelector((state) => state.calc);
+  const { paymentType } = useTypedSelector((state) => state.mortgageCalc.inputForm);
 
   return (
     <Form.Group as={Row} className="my-4" controlId="payment-type">

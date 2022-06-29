@@ -4,7 +4,7 @@ import Body from './Body';
 import Footer from './Footer';
 import Header from './Header';
 
-const Calculator: FC = () => {
+const InputForm: FC = () => {
   return (
     <Card>
       <Header />
@@ -18,4 +18,4 @@ const Calculator: FC = () => {
   );
 }
 
-export default Calculator;
+export default InputForm;

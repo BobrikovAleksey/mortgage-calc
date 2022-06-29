@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import Calculator from './components/Calculator';
+import MortgageCalc from './components/MortgageCalc';
 
 const App: FC = () => {
   return (
     <div className="container">
-      <h1 className="my-4">Ипотечный калькулятор</h1>
-
-      <Calculator />
+      <MortgageCalc />
     </div>
   );
 }

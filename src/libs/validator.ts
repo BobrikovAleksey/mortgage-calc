@@ -1,3 +1,5 @@
+import { ChangeEvent, KeyboardEvent } from 'react';
+
 export enum DirectiveEnum {
   alpha = 'alpha',
   decimal = 'decimal',
@@ -49,23 +51,23 @@ const isSpecialKey = (keyCode: number, isCtrl: boolean) => (
 );
 
 /**
- * Check pressed key against numeric char
- * => keydown event listener for input
+ * Допускает/игнорирует нажатую клавишу при соответствии/несоответствии типу 'number'
+ * event listener: 'keydown'
  */
-const numericKeyValidator = (event: any) => {
+const numericKeyValidator = (event: KeyboardEvent & ChangeEvent<HTMLInputElement>): void => {
   if (!isInputElement(event)) return;
 
   const { key, keyCode, ctrlKey, target: input } = event;
   if (isDirective(key, [ DirectiveEnum.nums ])) return;
 
   if (isSpecialKey(keyCode, ctrlKey)) {
-    const cursor = input.selectionStart;
+    const cursor = input.selectionStart ?? 0;
     if (input.selectionEnd !== cursor) return;
 
     if ((keyCode === SpecialKeyEnum.backspace) && /\s/.test(input.value[cursor - 1])) {
       input.selectionStart = cursor - 1;
     } else if ((keyCode === SpecialKeyEnum.delete) && /\s/.test(input.value[cursor])) {
-      input.selectionStart = input.selectionStart + 1;
+      input.selectionStart = cursor + 1;
     }
     input.selectionEnd = input.selectionStart;
     return;
@@ -75,10 +77,11 @@ const numericKeyValidator = (event: any) => {
 };
 
 /**
- * Check new value against number
- * => input event listener for input
+ * Проверяет новое значение на соответствие типу 'number',
+ * при несоответствии возвращает старое значение
+ * event listener: 'input'
  */
-const numericValueValidator = (event: any, oldValue: number = 0) => {
+const numericValueValidator = (event: ChangeEvent<HTMLInputElement>, oldValue: number = 0): void => {
   if (!isInputElement(event)) return;
 
   const { target: input } = event;
@@ -91,7 +94,7 @@ const numericValueValidator = (event: any, oldValue: number = 0) => {
 
   const valueAsStr = valueAsNum ? valueAsNum.toLocaleString() : '';
   const spaceCountAfter = valueAsStr.match(/\s+/g)?.length ?? 0;
-  const cursor = input.selectionStart;
+  const cursor = input.selectionStart ?? 0;
   const newCursor = cursor + spaceCountAfter - spaceCountBefore;
   input.value = valueAsStr;
   input.selectionStart = newCursor > 0 ? newCursor : 0;

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 
 const Rate: FC = () => {
-  const { rate } = useTypedSelector((state) => state.calc);
+  const { rate } = useTypedSelector((state) => state.mortgageCalc.inputForm);
 
   return (
     <Form.Group as={Row} className="my-3" controlId="rate">
@@ -16,6 +16,6 @@ const Rate: FC = () => {
       </Col>
     </Form.Group>
   );
-}
+};
 
 export default Rate;

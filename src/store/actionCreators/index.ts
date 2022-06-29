@@ -1,5 +1,5 @@
-import * as CalcActionCreators from './calculator';
+import * as MortgageCalcActionCreators from './mortgageCalc';
 
 export const ActionCreators = {
-  ...CalcActionCreators,
+  ...MortgageCalcActionCreators,
 };

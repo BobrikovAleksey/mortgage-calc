@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { calcReducer } from './calculator';
+import { mortgageCalc } from './mortgageCalc';
 
 export const rootReducer = combineReducers({
-  calc: calcReducer,
+  mortgageCalc,
 });

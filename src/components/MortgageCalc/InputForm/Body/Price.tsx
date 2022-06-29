@@ -1,11 +1,11 @@
 import { ChangeEvent, FC } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { useActions } from '../../../hooks/useActions';
-import { numericKeyValidator, numericValueValidator } from '../../../libs/validator';
+import { numericKeyValidator, numericValueValidator } from '../../../../libs/validator';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useActions';
 
 const Price: FC = () => {
-  const { price } = useTypedSelector((state) => state.calc);
+  const { price } = useTypedSelector((state) => state.mortgageCalc.inputForm);
   const { setPrice } = useActions();
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +33,6 @@ const Price: FC = () => {
       </Col>
     </Form.Group>
   );
-}
+};
 
 export default Price;

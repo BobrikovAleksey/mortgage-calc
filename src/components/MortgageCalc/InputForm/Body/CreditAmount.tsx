@@ -1,19 +1,16 @@
 import { ChangeEvent } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { useActions } from '../../../hooks/useActions';
-import { numericKeyValidator, numericValueValidator } from '../../../libs/validator';
+import { ICreditAmountProps } from '../../../../store/types/mortgageCalc/inputForm';
+import { numericKeyValidator, numericValueValidator } from '../../../../libs/validator';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useActions';
 
-interface CreditAmountProps {
-  readOnly?: boolean;
-}
-
-const initialCreditAmount: CreditAmountProps = {
+const initialCreditAmount: ICreditAmountProps = {
   readOnly: true,
 };
 
 const CreditAmount = (props = initialCreditAmount) => {
-  const { creditAmount } = useTypedSelector((state) => state.calc);
+  const { creditAmount } = useTypedSelector((state) => state.mortgageCalc.inputForm);
   const { setCreditAmount } = useActions();
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {

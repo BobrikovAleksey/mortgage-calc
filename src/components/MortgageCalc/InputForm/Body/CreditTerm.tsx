@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 
 const CreditTerm: FC = () => {
-  const { creditTerm } = useTypedSelector((state) => state.calc);
+  const { creditTerm } = useTypedSelector((state) => state.mortgageCalc.inputForm);
 
   return (
     <Form.Group as={Row} className="my-3" controlId="credit-term">
